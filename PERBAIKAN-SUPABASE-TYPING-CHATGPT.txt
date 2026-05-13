@@ -1,0 +1,28 @@
+Perbaikan dari ChatGPT:
+
+1. Mengubah lib/supabase.ts agar client memakai createClient<any>.
+   Tujuannya supaya Vercel tidak gagal build karena type generated Supabase belum sinkron dan menghasilkan error parameter type 'never'.
+
+2. Memperbaiki pola insert/update/delete di file admin yang sering gagal saat build:
+   - app/admin/products/page.tsx
+   - app/admin/promo/page.tsx
+   - app/admin/banners/page.tsx
+   - app/admin/leads/page.tsx
+   - app/admin/news/page.tsx
+   - components/admin/CrudManager.tsx
+   - app/api/leads/route.ts
+
+3. Folder berat seperti node_modules, .next, dan .git tidak disertakan di ZIP ini agar file ringan.
+
+Cara pakai:
+1. Extract ZIP ini.
+2. Buka folder hasil extract di PowerShell.
+3. Jalankan npm install jika node_modules belum ada.
+4. Jalankan npm run build untuk cek lokal.
+5. Jika aman, push ke GitHub:
+   git add .
+   git commit -m "Fix all Supabase typing errors"
+   git push
+
+Catatan:
+Warning <img> dari Next.js bukan error fatal. Itu bisa diperbaiki nanti dengan next/image.

@@ -1,0 +1,15 @@
+Perbaikan login:
+- Tombol login tidak akan loading selamanya.
+- Jika Supabase tidak merespons 15 detik, akan muncul pesan error.
+- Jika session berhasil dibuat, diarahkan ke /admin dengan router.replace dan fallback window.location.href.
+
+Setelah extract:
+1. npm install
+2. npm run dev
+3. buka http://localhost:3000/admin/login
+
+Jika masih gagal:
+- cek Supabase Authentication > Users
+- pastikan email sudah ada dan Confirmed
+- reset password user
+- pastikan .env.local benar
